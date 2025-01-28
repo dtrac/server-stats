@@ -35,8 +35,7 @@ Top 5 Processes by Memory Usage:
     858 polkitd          1.4
     804 NetworkManager   1.0
       1 systemd          0.7
-bash: line 39: lsb_release: command not found
-Operating System: 
+Operating System: Red Hat Enterprise Linux 8.9 (Ootpa)
 Uptime: up 1 minute
 Load Average (1, 5, 15 min):  0.30, 0.14, 0.05
 Logged-in Users: 0
