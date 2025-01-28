@@ -45,10 +45,14 @@ ps -eo pid,comm,%mem --sort=-%mem | head -n 6
 
 # Stretch Goals
 
-# OS Version
-# Use `lsb_release` to get the description of the OS (e.g., Ubuntu 20.04).
-os_version=$(lsb_release -d | awk -F'\t' '{print $2}')
-echo "Operating System: $os_version"
+# Get OS Version (cross-distro)
+if [ -f /etc/os-release ]; then
+  os_version=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
+elif [ -f /etc/redhat-release ]; then
+  os_version=$(cat /etc/redhat-release)
+else
+  os_version="OS version information not available"
+fi
 
 # Uptime
 # Use `uptime` with the `-p` flag to display the system uptime in a human-readable format.
